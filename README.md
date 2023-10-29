@@ -20,9 +20,9 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 <h2>List of Prerequisites</h2>
 
-- Item 1
-- Item 2
-- Item 3
+- Set up an Azure Virtual Machine (VM) environment (Windows 10 4 vCPUs recommended)
+- https://drive.google.com/drive/u/1/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6 (Download these files onto your Azure Virtual Machine)
+- Item 3 
 - Item 4
 - Item 5
 
