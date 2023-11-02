@@ -72,15 +72,54 @@ CGI and Common HTTP Features</h2>
 
 
 </p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+<h2>Installing osTicket</h2>
 
+- From the Installation Files, downaload and install <b>osTicket v1.115.8.zip</b>
+
+- Extract the upload folder from the zip file and copy the folder into the directory
+<b>C:\inetpub\wwwroot</b> in your VM
+<img width="1215" alt="image" src="https://github.com/antxcyber/osticket-prereqs/assets/148983947/65bad9c5-a9c6-444a-9026-e1e20e271d0d">
+<p></p>
+- After moving the upload file rename it to "osTicket"
+- Go back to IIS and restart the server
+- In IIS Manager, expand the connection <b>Sites</b> then <b>Default Web Sites</b> to click and highlight <b>osTicket</b>. Then, navigate to <b>Browse Folder</b> and click on <b>Browser*.80 (http)</b>
+- The page of osTicket Installer should now pop up, if it does not, check your directories of your files and folders.
+<img width="1215" alt="image" src="https://github.com/antxcyber/osticket-prereqs/assets/148983947/c07ff257-a312-4a57-940f-57ef85f62a99">
+- In IIS Manager, go to <b>osTicket</b> and click on <b>PHP Manager</b> and click on <b>Enable or Disable extensions</b> and enable the following
+<p></p>
+- php_imap.dll
+<p></p>
+- php_intl.dll
+<p></p>
+- php_opcache.dll
+<p></p>
+-Refresh osTicket Installer on your browser to see <b>PHP IMAP Extension</b> and <b>Intl Extensions</b> are checked signifying the extensions are installed
+<p></p>
+- After configurations locate the php file <b>ost-sampleconfig.php</b> inside the directory <b>C:\inetpub\wwwroot\osTicket\include\</b> and rename it to <b>ost-config.php</b> because osTicket Installer needs to interact with this file
+<p></p>
+-Now go to the <b>Properties</b> of the ost-config file and go the the <b>Advanced</b> settings in <b>Security</b> and <b>Disable Inheritance</b> to remove all inheritance permissions from the file (essentially making a "clean" object)
+<p></p>
+- Now add a new Permission, then click on <b>Select a principle</b> and for a new object type "everyone" then click on <b>Check names</b> to set the Group and click on OK. Then check all the boxes on Basic Permissions and then click OK. Now everyone using osTicket should have full permission to use it.
+<p></p>
+- Head to osTicket on your browser and click on <b>Continue</b> then set your <b>System Settings</b> and <b>Admin User</b> until you get to <b>Database Settings</b>
+<p></p>
+-For login information, you can set it to a fake email such as "yourname@helper.com", 
+<p></p>
+- From the <b>Installation Files</b>, download and install <b>HeidiSQL</b>
+<p></p>
+- Go through basic setup then launch HeidiSQL and create a New Session using the username "root" and password "Password1"
+<img width="684" alt="image" src="https://github.com/antxcyber/osticket-prereqs/assets/148983947/49dd50e7-c68e-4139-9950-e2487c3f8ff7">
+<p></p>
+- Create a Database and name it <b>osTicket</b>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+- Once connected, go back to osTicket Installer type in our username (root) and password (Password1) into the respected fields in Database Settings
+<p> 
+-MySQL Database: osTicket
+<p></p>
+-MySQL Username: root
+<p></p>
+-MySQL Password: Password1
+<p></p>
+- Click <b>Install Now</b>, osTicket should now be fully installed on your VM!
+
+<img width="1308" alt="image" src="https://github.com/antxcyber/osticket-prereqs/assets/148983947/8f88a6e6-1300-46c1-98f9-f5fd1f74930f">
